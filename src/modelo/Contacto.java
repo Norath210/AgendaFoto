@@ -5,9 +5,12 @@
  */
 package modelo;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -25,14 +28,16 @@ public class Contacto implements Serializable{
     private String telefono;
     private Date fechaNacimiento;
     private Tipo tipo;
-
+    private ImageIcon foto;
     
 
     public Contacto(){
         
     }
     public Contacto(String nif){
-        this.nif = nif;
+        this.nif = nif;        
+        ImageIcon foto = new ImageIcon("default.jpg");
+        this.foto = foto;
     }
     public Contacto( String nombre, String apellido1, String apellido2, String nif, String telefono, Date fechaNacimiento,Tipo tipo) {
   
@@ -43,6 +48,9 @@ public class Contacto implements Serializable{
         this.telefono = telefono;
         this.fechaNacimiento = fechaNacimiento;
         this.tipo = tipo;
+        ImageIcon foto = new ImageIcon("defaultResize.jpg");
+        
+        this.foto = foto;
     }
 
 
@@ -101,6 +109,14 @@ public class Contacto implements Serializable{
         this.tipo = tipo;
     }
 
+    public ImageIcon getFoto() {
+        return foto;
+    }
+
+    public void setFoto(ImageIcon foto) {        
+        this.foto = foto;
+    }
+    
 
 
     @Override
